@@ -7,8 +7,7 @@ create table role_table
     name varchar(20) not null
 );
 
-alter table role_table
-    owner to postgres;
+
 
 -- auto-generated definition
 create table user_table
@@ -23,8 +22,7 @@ create table user_table
         references role_table
 );
 
-alter table user_table
-    owner to postgres;
+
 
 create unique index user_table_login_uindex
     on user_table (login);
