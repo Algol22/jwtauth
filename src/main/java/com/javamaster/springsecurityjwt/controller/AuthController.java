@@ -1,6 +1,7 @@
 package com.javamaster.springsecurityjwt.controller;
 
 import com.javamaster.springsecurityjwt.config.jwt.JwtProvider;
+import com.javamaster.springsecurityjwt.entity.RoleEntity;
 import com.javamaster.springsecurityjwt.entity.UserEntity;
 import com.javamaster.springsecurityjwt.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class AuthController {
     private JwtProvider jwtProvider;
 
     @GetMapping("/")
-    public String getUser() {
+    public String getUsr() {
         return "Hello. This is JWT Rest API " +
                 "<br/> to test it:<br/>" +
                 "<br/>1) Register user POST request: https://restc.herokuapp.com/register <br/>" +
@@ -44,6 +45,7 @@ public class AuthController {
         u.setPassword(registrationRequest.getPassword());
         u.setLogin(registrationRequest.getLogin());
         userService.saveUser(u);
+
         return "OK";
     }
 
