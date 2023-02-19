@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user_table")
+@Table(name = "jwt_user_table")
 @Data
 public class UserEntity {
 
@@ -29,4 +29,14 @@ public class UserEntity {
     @ManyToOne
     @JoinColumn(name = "role_id")
     private RoleEntity roleEntity;
+
+    public UserEntity(Integer id, String login, String password, RoleEntity roleEntity) {
+        this.id = id;
+        this.login = login;
+        this.password = password;
+        this.roleEntity = roleEntity;
+    }
+
+    public UserEntity() {
+    }
 }

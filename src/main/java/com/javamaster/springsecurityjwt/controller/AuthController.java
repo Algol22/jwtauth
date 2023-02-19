@@ -19,26 +19,6 @@ public class AuthController {
     @Autowired
     private JwtProvider jwtProvider;
 
-    @GetMapping("/")
-    public String getUsr() {
-        return "Hello. This is JWT Rest API " +
-                "<br/> to test it:<br/>" +
-                "<br/>1) Register user POST request: https://restc.herokuapp.com/register <br/>" +
-                "body json raw: <br/>" +
-                "{\n<br/>" +
-                "    \"login\":\"test\",\n<br/>" +
-                "    \"password\":\"test\"\n<br/>" +
-                "}<br/>" +
-                "<br/>2) Auth: https://restc.herokuapp.com/auth <br/>"+
-                "body json raw: <br/>" +
-                "{\n<br/>" +
-                "    \"login\":\"test\",\n<br/>" +
-                "    \"password\":\"test\"\n<br/>" +
-                "}<br/>" +
-                "Get token in response<br/>" +
-                "<br/>3) Auth with token https://restc.herokuapp.com/user/get";
-    }
-
     @PostMapping("/register")
     public String registerUser(@RequestBody @Valid RegistrationRequest registrationRequest) {
         UserEntity u = new UserEntity();

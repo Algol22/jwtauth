@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> JWT Auth practice </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style type="text/css">
+    body
+    {
+    background-color:#222;
+    color:#999;
+    font-family:Verdana;
+    font-size:9pt;
+    padding:10px;
+    margin:10px;
+    }
+    pre{
+       color:#999;
+    }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+
+
+<pre>
+    <span text-align="center">JWT Auth</span>
+
+    1) <b>POST</b> Register user POST request:
+    <span th:text="${#request.getScheme()} + '://' + ${#request.getServerName()} + ':' + ${#request.getServerPort()} + ${#request.getContextPath()}"></span>/register
+    body json raw:
+        <i>
+    {
+    "login":"test",
+    "password":"test"
+    }
+        </i>
+
+    2) <b>POST</b> Auth:
+    <span th:text="${#request.getScheme()} + '://' + ${#request.getServerName()} + ':' + ${#request.getServerPort()} + ${#request.getContextPath()}"></span>/auth
+    body json raw:
+    <i>
+    {
+    "login":"test",
+    "password":"test"
+    }
+    </i>
+
+    Get token in response
+
+    3) <b>GET</b> Auth with bearer token
+    <span th:text="${#request.getScheme()} + '://' + ${#request.getServerName()} + ':' + ${#request.getServerPort()} + ${#request.getContextPath()}"></span>/user/get
+
+
+</pre>
+</div>
+</body>
+</html>
